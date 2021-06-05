@@ -1,0 +1,5 @@
+node_modules/
+dist/
+keys.js
+.idea
+.secrets.sh
