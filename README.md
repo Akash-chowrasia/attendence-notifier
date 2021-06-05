@@ -12,11 +12,12 @@ I built it for Login & logout reminder on greytHR while i am in plaxonic technol
 
  * If you are testing it on localhost, dont forgot to add `.secrets.sh` file into it by initialising with all the ENV Variables as
 
-
-`PORT=8000
+<pre>
+PORT=8000
 CORS_REGEX=http://localhost
 DB_URL=mongodb://localhost/attendence_notifier
 SECRET_KEY=asasadjsgvsdjanbshjavvgsdvshgfvudfvg
 NODE_ENV=development
 DOMAIN=http://localhost:8000
-GREYT_HR=GREYTHR_LOGIN_URL`
+GREYT_HR=GREYTHR_LOGIN_URL
+</pre>
