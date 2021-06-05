@@ -1,5 +1,3 @@
-// export { default as deviceModel } from './device-model';
+import notifierModel from './notifier-schema';
 
-import deviceModel from './device-model';
-
-export default deviceModel;
+export default notifierModel;

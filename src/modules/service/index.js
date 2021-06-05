@@ -1,33 +1,29 @@
 import assert from 'assert';
 import createError from 'http-errors-lite';
 import { StatusCodes } from 'http-status-codes';
-import deviceModel from '../models';
+import axios from 'axios';
+import notifierModel from '../models';
 
-const deviceService = {};
+const service = {};
 
-deviceService.doRegisterDevice = async ({ name, type }) => {
-  const record = await deviceModel.findOne({ name });
+service.addHook = async ({ name, hook }) => {
+  const record = await notifierModel.findOne({ hook });
   assert(
     record === null,
-    createError(StatusCodes.BAD_REQUEST, 'device already register')
+    createError(StatusCodes.BAD_REQUEST, 'hook already register')
   );
-  return deviceModel.create({ name, type });
+  const result = await notifierModel.create({ name, hook });
+  return result;
 };
 
-deviceService.getRecord = async (id) => deviceModel.findById(id);
+service.getHooks = async () => notifierModel.find({});
 
-deviceService.fetchList = async ({
-  page,
-  size,
-  query,
-  sort = { createdAt: -1 },
-}) => {
-  const records = await deviceModel
-    .find({ ...query })
-    .skip((page - 1) * size)
-    .limit(size)
-    .sort(sort);
-  return records;
-};
+service.deleteHook = async (id) => notifierModel.findByIdAndDelete(id);
 
-export default deviceService;
+service.markLogin = async (id) =>
+  notifierModel.findByIdAndUpdate(id, { is_login: true });
+
+service.markLogout = async (id) =>
+  notifierModel.findByIdAndUpdate(id, { is_logout: true });
+
+export default service;

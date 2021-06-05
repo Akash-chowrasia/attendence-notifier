@@ -1,14 +1,14 @@
 import Router from 'express';
-import deviceRouter from './router';
+import notifierRouter from './router';
 
 const router = Router();
 
-router.use('/device', deviceRouter);
+router.use('/notifier', notifierRouter);
 
-const deviceModule = {
+const notifierModule = {
   init: (app) => {
     app.use(router);
   },
 };
 
-export default deviceModule;
+export default notifierModule;
