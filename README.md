@@ -2,6 +2,8 @@
 
 I built it for Login & logout reminder on greytHR while i am in plaxonic technologies. me & my team always use to forgot our attendence. This bot triggers at 8:10 morning & 10:10 evening and gives me reminder at every 10 minutes untill i do login/logout & tell the bot that i did it. This bot really helping me alot.
 
+## Technology used: 
+ Node.js, EJS
 # Instruction for use
 
  * fork it
@@ -21,3 +23,8 @@ NODE_ENV=development
 DOMAIN=http://localhost:8000
 GREYT_HR=GREYTHR_LOGIN_URL
 </pre>
+
+## Execute on Localhost
+ * pnpm i
+ * pnpm run dev
+
