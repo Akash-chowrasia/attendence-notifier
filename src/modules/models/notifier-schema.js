@@ -16,6 +16,6 @@ const notifierSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-notifierSchema.index({ name: true });
+notifierSchema.index({ hook: true, name: true });
 
 export default mongoose.model('notifier', notifierSchema);
