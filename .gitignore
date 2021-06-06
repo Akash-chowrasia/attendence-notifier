@@ -2,3 +2,4 @@ node_modules/
 dist/
 .idea
 .secrets.sh
+read-secrets.js

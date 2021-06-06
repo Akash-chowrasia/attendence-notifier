@@ -1,14 +1,14 @@
-import fs from 'fs';
-
-const secretsMap = {};
-
-const isDevelopment =
-  'NODE_ENV' in process.env && process.env.NODE_ENV === 'development';
+const secretsMap = {
+  PORT: process.env.PORT || 8000,
+  CORS_REGEX: 'http://localhost',
+  DB_URL:
+    'mongodb+srv://akrotutor:Hind786@cluster0.xwvos.mongodb.net/attendanceNotifier?retryWrites=true&w=majority',
+  SECRET_KEY: 'asasadjsgvsdjanbshjavvgsdvshgfvudfvg',
+  NODE_ENV: 'development',
+  DOMAIN: 'http://localhost:8000',
+  ATTENDANCE_URL: 'https://plaxonic.greythr.com/',
+};
 
 export const readSecret = (secretName) => {
-  if (isDevelopment) return process.env[secretName];
-  if (secretName in secretsMap) return secretsMap[secretName];
-  const x = fs.readFileSync(`/var/openfaas/secrets/${secretName}`);
-  secretsMap[secretName] = x.toString();
   return secretsMap[secretName];
 };

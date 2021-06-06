@@ -10,5 +10,6 @@ import { readSecret } from './read-secrets';
       useCreateIndex: true,
       useUnifiedTopology: true,
     });
+    console.log('database connected successfull');
   } catch (err) {}
 })();

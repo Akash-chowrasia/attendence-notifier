@@ -18,8 +18,6 @@ export const createApp = () => {
       methods: 'GET, PUT, DELETE, POST',
     })
   );
-  app.set('views', path.join(__dirname, './views'));
-  app.set('view engine', 'ejs');
   return app;
 };
 
