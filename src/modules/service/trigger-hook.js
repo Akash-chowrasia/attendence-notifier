@@ -18,7 +18,7 @@ const loginHook = async () => {
         });
       }
     });
-  }, 1000 * 2);
+  }, 1000 * 60 * 10);
 };
 
 const logoutHook = async () => {
@@ -43,21 +43,17 @@ const logoutHook = async () => {
 const triggerHook = async () => {
   let intervalId;
   setInterval(async () => {
-    console.log('interval cleared');
-    console.log(intervalId);
     clearInterval(intervalId);
     await notifierModel.updateMany({}, { is_login: false, is_logout: false });
     const dateTime = new Date();
-    const timea = dateTime.getHours();
-    console.log(timea);
-    const time = 8;
+    const time = dateTime.getHours();
     if (time >= 8 && time <= 10) {
       intervalId = await loginHook();
     }
     if (time >= 22 && time <= 23) {
       intervalId = await logoutHook();
     }
-  }, 1000 * 60);
+  }, 1000 * 60 * 60);
 };
 
 export default triggerHook;
